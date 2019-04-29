@@ -8,8 +8,8 @@ exports.up = knex => knex.schema.createTable('cohorts', table => {
     table.text('thank_you_text').notNullable();
 }).createTable('applications', table => {
     table.increments();
-    table.integer('cohort_id').notNullable().references('id').inTable('cohorts');
-    table.integer('user_id').notNullable().references('id').inTable('users');
+    table.integer('user_id').unsigned().notNullable().references('id').inTable('users');
+    table.integer('cohort_id').unsigned().notNullable().references('id').inTable('cohorts');
     table.boolean('accepted_test').notNullable();
     table.boolean('accepted_cohort').notNullable();
 });

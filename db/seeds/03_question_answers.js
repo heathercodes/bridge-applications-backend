@@ -28,11 +28,11 @@ exports.seed = knex => {
         return knex('questions').insert(createNText(16, createQuestions));
     }).then(() => {
         return knex('answer_choices').del().then(() => {
-            return knex('answer_choices').insert(createNText(16, createAnswersChoices));
+            knex('answer_choices').insert(createNText(16, createAnswersChoices));
         });
     }).then(() => {
         return knex('responses').del().then(() => {
-            return knex('responses').insert(createNText(60, createResponses));
+            knex('responses').insert(createNText(60, createResponses));
         });
     })
 };

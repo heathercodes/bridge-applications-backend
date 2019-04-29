@@ -8,9 +8,9 @@ exports.up = knex => knex.schema.createTable('questions', table => {
     table.integer('question_id').notNullable().references('id').inTable('questions');
 }).createTable('responses', table => {
     table.increments();
-    table.integer('user_id').notNullable().references('id').inTable('users');
-    table.integer('question_id').notNullable().references('id').inTable('questions');
-    table.integer('answer_id').notNullable().references('id').inTable('answer_choices');
+    table.integer('user_id').unsigned().notNullable().references('id').inTable('users');
+    table.integer('question_id').unsigned().notNullable().references('id').inTable('questions');
+    table.integer('answer_id').unsigned().notNullable().references('id').inTable('answer_choices');
     table.text('user_response').notNullable();
 });
 

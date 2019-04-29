@@ -46,10 +46,10 @@ exports.seed = knex => {
     return knex('cohorts')
       .del()
       .then(() => {
-        return knex('cohorts').insert(cohorts);
+        knex('cohorts').insert(cohorts);
     }).then(() => {
         return knex('applications').del().then(() => {
-            return knex('applications').insert(createNAcceptances(20))
+            knex('applications').insert(createNAcceptances(20))
         });
     })
 };
