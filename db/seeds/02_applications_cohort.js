@@ -31,13 +31,6 @@ const cohorts = [
     }
 ];
 
-const createAcceptance = () => {
-    return {
-        accepted_test: faker.random.boolean(),
-        accepted_cohort: faker.random.boolean()
-    };
-};
-  
 const createNAcceptances = n =>
     Array.from(Array(n)).map(element => createAcceptance());
 
@@ -46,10 +39,17 @@ exports.seed = knex => {
     return knex('cohorts')
       .del()
       .then(() => {
-        knex('cohorts').insert(cohorts);
-    }).then(() => {
-        return knex('applications').del().then(() => {
-            knex('applications').insert(createNAcceptances(20))
-        });
+        return knex('cohorts').returning("id").insert(cohorts).then((cohort_ids) => {
+            knex("users").returning('id').then((user_ids) => {
+                return knex("applications").insert(user_ids.map((user_id) => {
+                    return {
+                        user_id: user_id.id,
+                        cohort_id: cohort_ids[3],
+                        accepted_test: faker.random.boolean(),
+                        accepted_cohort: faker.random.boolean()
+                    }
+                }))
+            })
+        })
     })
-};
+}

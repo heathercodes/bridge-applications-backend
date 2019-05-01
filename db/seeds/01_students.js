@@ -1,6 +1,6 @@
 const faker = require('faker');
 
-const identifyingArray = [
+const identifyingInfoArray = [
     {
         name: 'Woman',
         is_gender: true,
@@ -71,15 +71,22 @@ const createNStudents = n =>
   
 exports.seed = knex => {
     // Deletes ALL existing entries
-    return knex('users')
+    return knex("users")
       .del()
       .then(() => {
         // Inserts seed entries
-        return knex('users').insert(createNStudents(20));
-    }).then(() => {
-        return knex('identifying_info').del().then(() => {
-            return knex('identifying_info').insert(identifyingArray)
-        });
-    })
-};
+        return knex("identifying_info").del().then(() => {
+          knex("identifying_info").returning("id").insert(identifyingInfoArray)
+          .then((info_ids) => {
+            return knex("users").returning('id').insert(createNStudents(20))
+              .then((user_ids) => (
+                knex("users_identifying_info").insert(user_ids.map((user_id) => ({
+                  user_id,
+                  identifying_info_id: faker.helpers.randomize(info_ids)
+                })))
+              ));
+          })
+        })
+      });
+    };
 
