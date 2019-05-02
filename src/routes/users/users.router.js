@@ -1,5 +1,6 @@
 const express = require('express');
 const { check } = require('express-validator/check');
+const database = require('../../db');
 
 const usersController = require("./users.controller");
 
