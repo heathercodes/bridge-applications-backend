@@ -56,8 +56,46 @@ const create = async (req, res, next) => {
     }
 }
 
+const update = async (req, res, next) => {
+    const {id} = req.params;
+    const updatedInfo = req.body;
+
+    try {
+        const updatedCohort = await Cohorts.query()
+            .where('cohorts.id', id)
+            .update(updatedInfo)
+            .returning('*');
+
+        return res.json({
+            data: updatedCohort
+        });
+
+    } catch(err) {
+        next(err);
+    }
+}
+
+const del = async (req, res, next) => {
+    const {id} = req.params;
+
+    try {
+        await Cohorts.query()
+            .where('cohorts.id', id)
+            .del();
+
+        return res.json({
+            data: 'Successfully deleted'
+        });
+
+    } catch(err) {
+        next(err);
+    }
+}
+
 module.exports = {
     list,
     get,
-    create
+    create,
+    update,
+    del
 }

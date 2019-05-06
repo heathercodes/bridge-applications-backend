@@ -83,10 +83,42 @@ const create = async (req, res, next) => {
         next(err);
     }
   }
-  
+
+const del = async (req, res, next) => {
+    const {id} = req.params;
+
+    try {
+        await User.query()
+            .where('users.id', id)
+            .del();
+
+    } catch(err) {
+        next(err);
+    }
+}
+
+const update = async () => {
+    const {id} = req.params;
+    const updatedData = req.body;
+
+    try {
+        const updatedUser = await User.query()
+            .where('users.id', id)
+            .update(updatedData)
+            .returning('*');
+
+        return res.json({
+            data: updatedUser
+        });
+
+    } catch(err) {
+        next(err);
+    }
+}
 
 module.exports = {
     list,
     get,
-    create
+    create,
+    del
 }

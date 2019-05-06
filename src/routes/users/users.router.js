@@ -29,6 +29,7 @@ router.post("", [
     ]),
     check('identifying_info').isArray()
 ], usersController.create);
+router.delete("/:id", usersController.del);
 
 module.exports = {
   usersRouter: router

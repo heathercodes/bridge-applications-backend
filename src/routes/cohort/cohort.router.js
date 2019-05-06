@@ -14,6 +14,8 @@ router.post("", [
     check('welcome_text', 'please enter welcome text').isLength({min: 10}),
     check('thank_you_text', 'please enter thank you text').isLength({min: 10}),
 ], cohortsController.create);
+router.put("/:id", cohortsController.update);
+router.delete("/:id", cohortsController.del);
 
 module.exports = {
   cohortsRouter: router
