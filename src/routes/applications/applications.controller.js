@@ -1,11 +1,11 @@
 const { validationResult } = require('express-validator/check');
-const Cohorts = require("./cohort.model");
+const Applications = require("./applications.model");
 
 const list = async (req, res, next) => {
     try {
-        const cohorts = await Cohorts.query();
+        const applications = await Applications.query();
 
-        return res.json({ data: cohorts });
+        return res.json({ data: applications });
 
     } catch(err) {
         next(err);
@@ -16,16 +16,16 @@ const get = async (req, res, next) => {
     const { id } = req.params;
 
     try {
-        const cohort = await Cohorts.getCohort(id);
+        const application = await Applications.getApplication(id);
 
-        if (cohort.length === 0) {
+        if (application.length === 0) {
             return res.status(404).json({
-                error: 'Cohort not found'
+                error: 'Application not found'
             })
         }
 
         return res.json({
-            data: cohort
+            data: application
         });
     } catch(err) {
         next(err);
@@ -40,10 +40,10 @@ const create = async (req, res, next) => {
     }
 
     try {
-        const newCohort = await Cohorts.insertCohort(req.body)
+        const newApplication = await Applications.insertApplication(req.body);
 
         return res.json({
-            data: newCohort
+            data: newApplication
         });
 
     } catch(err) {
@@ -56,10 +56,10 @@ const update = async (req, res, next) => {
     const updatedInfo = req.body;
 
     try {
-        const updatedCohort = await Cohorts.updateCohort(id, updatedInfo);
+        const updatedApplication = await Applications.updateApplication(id, updatedInfo);
 
         return res.json({
-            data: updatedCohort
+            data: updatedApplication
         });
 
     } catch(err) {
@@ -71,7 +71,7 @@ const del = async (req, res, next) => {
     const { id } = req.params;
 
     try {
-        await Cohorts.deleteCohort(id);
+        await Applications.deleteApplication(id);
 
         return res.json({
             data: 'Successfully deleted'
