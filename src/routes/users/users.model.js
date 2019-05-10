@@ -12,13 +12,12 @@ class User extends Model {
 
   static getUser(id) {
     return User.query()
-      .where('users.id', id)
-      .eager("identifying_info");
+      .findById(id)
   }
 
-  static insertUser({ first_name, last_name, email, employment_status, employer, pronouns }) {
+  static insertUser({ first_name, last_name, email, employment_status, employer, pronouns, role }) {
     return User.query()
-      .insert({ first_name, last_name, email, employment_status, employer, pronouns })
+      .insert({ first_name, last_name, email, employment_status, employer, pronouns, role })
       .returning('*');
   }
 

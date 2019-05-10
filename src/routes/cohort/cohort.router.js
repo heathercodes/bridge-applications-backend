@@ -1,5 +1,6 @@
 const express = require('express');
 const { check } = require('express-validator/check');
+const restrictToAdmin = require('../../middleware/restrict-to-admin');
 
 const cohortsController = require("./cohort.controller");
 
@@ -13,9 +14,9 @@ router.post("", [
     check('end_date', 'this cohort needs a valid end date').exists(),
     check('welcome_text', 'please enter welcome text').isLength({min: 10}),
     check('thank_you_text', 'please enter thank you text').isLength({min: 10}),
-], cohortsController.create);
-router.put("/:id", cohortsController.update);
-router.delete("/:id", cohortsController.del);
+], restrictToAdmin, cohortsController.create);
+router.put("/:id", restrictToAdmin, cohortsController.update);
+router.delete("/:id", restrictToAdmin, cohortsController.del);
 
 module.exports = {
   cohortsRouter: router

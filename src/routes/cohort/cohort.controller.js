@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator/check');
 const Cohorts = require("./cohort.model");
+const { NotFoundError } = require('../../utils/errors');
 
 const list = async (req, res, next) => {
     try {
@@ -8,7 +9,7 @@ const list = async (req, res, next) => {
         return res.json({ data: cohorts });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to find cohorts");
     }
 };
 
@@ -28,7 +29,7 @@ const get = async (req, res, next) => {
             data: cohort
         });
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to find cohort");
     }
 };
 
@@ -47,7 +48,7 @@ const create = async (req, res, next) => {
         });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to add cohort");
     }
 }
 
@@ -63,7 +64,7 @@ const update = async (req, res, next) => {
         });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to update cohort");
     }
 }
 
@@ -78,7 +79,7 @@ const del = async (req, res, next) => {
         });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Error deleting cohort");
     }
 }
 

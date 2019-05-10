@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator/check');
 const Applications = require("./applications.model");
+const { NotFoundError } = require('../../utils/errors');
 
 const list = async (req, res, next) => {
     try {
@@ -8,7 +9,7 @@ const list = async (req, res, next) => {
         return res.json({ data: applications });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to find applications");
     }
 };
 
@@ -28,7 +29,7 @@ const get = async (req, res, next) => {
             data: application
         });
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to find application");
     }
 };
 
@@ -47,7 +48,7 @@ const create = async (req, res, next) => {
         });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to add application");
     }
 }
 
@@ -63,7 +64,7 @@ const update = async (req, res, next) => {
         });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to update application");
     }
 }
 
@@ -78,7 +79,7 @@ const del = async (req, res, next) => {
         });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Error in deleting application");
     }
 }
 

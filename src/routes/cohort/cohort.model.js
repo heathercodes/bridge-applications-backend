@@ -13,20 +13,19 @@ class Cohorts extends Model {
 
   static getCohort(id) {
     return Cohorts.query()
-      .where('cohort.id', id)
+      .findById(id)
       .returning('*');
   }
 
   static updateCohort(id, updatedInfo) {
     return Cohorts.query()
-      .where('cohort.id', id)
-      .patch(updatedInfo)
+      .patchAndFetchById(id, updatedInfo)
       .returning('*')
   }
 
   static deleteCohort(id) {
     return Cohorts.query()
-      .where('cohort.id', id)
+      .findById(id)
       .del()
   }
 

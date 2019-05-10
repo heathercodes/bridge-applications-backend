@@ -54,7 +54,7 @@ const identifyingInfoArray = [
 ];
 
 const createStudent = () => {
-    const firstName = faker.name.firstName(1);
+    const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     return {
         first_name: firstName,
@@ -62,7 +62,8 @@ const createStudent = () => {
         email: faker.internet.email(firstName, lastName),
         pronouns: "she/they",
         employment_status: "full_time",
-        employer: faker.company.companyName()
+        employer: faker.company.companyName(),
+        role: 'user'
     };
 };
   

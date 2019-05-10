@@ -1,12 +1,13 @@
 const express = require('express');
 const { check } = require('express-validator/check');
 const database = require('../../db');
+const restrictToAdmin = require('../../middleware/restrict-to-admin');
 
 const applicationsController = require("./applications.controller");
 
 const router = express.Router();
 
-router.get("", applicationsController.list);
+router.get("", restrictToAdmin, applicationsController.list);
 router.get("/:id", applicationsController.get);
 router.post("", [
     check('cohort_id').exists(),

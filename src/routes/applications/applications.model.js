@@ -23,20 +23,19 @@ class Applications extends Model {
 
   static updateApplication(id, updatedInfo) {
     return Applications.query()
-      .where('applications.id', id)
-      .patch(updatedInfo)
+      .patchAndFetchById(id, updatedInfo)
       .returning('*')
   }
 
   static deleteApplication(id) {
     return Applications.query()
-      .where('applications.id', id)
+      .findById(id)
       .del()
   }
 
   static getApplication(id) {
     return Applications.query()
-      .where('applications.id', id)
+      .findById(id)
       .returning('*');
   }
 

@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator/check');
 const User = require("./users.model");
 const IdentifyingInfo = require('../identifying_info/identifyingInfo.model');
 const UserIdentifyingInfo = require('../identifying_info/userIdentifyingInfo.model');
+const { NotFoundError } = require('../../utils/errors');
 
 const list = async (req, res, next) => {
     try {
@@ -10,7 +11,7 @@ const list = async (req, res, next) => {
         return res.json({ data: users });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to find users");
     }
 };
 
@@ -31,7 +32,7 @@ const get = async (req, res, next) => {
             identifying_info: users.map((user) => user.identifying_info)
         });
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Unable to find user");
     }
 };
 
@@ -75,7 +76,7 @@ const create = async (req, res, next) => {
         return res.json(users)
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Cannot add user");
     }
   }
 
@@ -88,7 +89,7 @@ const del = async (req, res, next) => {
             .del();
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Error deleting user:");
     }
 }
 
@@ -108,7 +109,7 @@ const update = async () => {
         });
 
     } catch(err) {
-        next(err);
+        throw new NotFoundError("Cannot update user");
     }
 }
 

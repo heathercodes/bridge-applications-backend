@@ -15,6 +15,7 @@ exports.up = knex => knex.schema.createTable('users', table => {
         ])
         .notNullable();
     table.string('employer');
+    table.string('role').notNullable();
 }).createTable('identifying_info', table => {
     table.increments();
     table.string('name');

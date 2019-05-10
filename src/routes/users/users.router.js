@@ -1,12 +1,12 @@
 const express = require('express');
 const { check } = require('express-validator/check');
 const database = require('../../db');
-
+const restrictToAdmin = require('../../middleware/restrict-to-admin');
 const usersController = require("./users.controller");
 
 const router = express.Router();
 
-router.get("", usersController.list);
+router.get("", restrictToAdmin, usersController.list);
 router.get("/:id", usersController.get);
 router.post("", [
     check('first_name', 'first name must be at least 2 characters').isLength({min: 2}),
@@ -27,7 +27,8 @@ router.post("", [
         'looking',
         'not_looking'
     ]),
-    check('identifying_info').isArray()
+    check('identifying_info').isArray(),
+    check('role', 'please set user role').exists()
 ], usersController.create);
 router.delete("/:id", usersController.del);
 
