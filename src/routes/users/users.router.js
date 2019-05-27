@@ -1,12 +1,20 @@
 const express = require('express');
 const { check } = require('express-validator/check');
 const database = require('../../db');
-const restrictToAdmin = require('../../middleware/restrict-to-admin');
 const usersController = require("./users.controller");
+const {UnauthorizedError} = require("../../utils/errors")
 
 const router = express.Router();
 
-router.get("", restrictToAdmin, usersController.list);
+router.get("",
+    (req, res, next) => {
+        console.log(req.user.permissions);
+        if (req.user.permissions.includes("read:users")) {
+          next();
+        } else {
+          next(new UnauthorizedError("NO! YOU CANT! WHO DO YOU THINK YOU ARE"));
+        }
+}, usersController.list);
 router.get("/:id", usersController.get);
 router.post("", [
     check('first_name', 'first name must be at least 2 characters').isLength({min: 2}),

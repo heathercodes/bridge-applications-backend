@@ -1,10 +1,19 @@
 class NotFoundError extends Error {
     constructor(message) {
       super(message);
-      this.statusCode = 404;
+      this.statusCode = 401;
       this.message = message;
       Error.captureStackTrace(this, this.constructor);
     }
+}
+
+class UnauthorizedError extends Error {
+  constructor(message) {
+    super(message);
+    this.statusCode = 403;
+    this.message = message;
+    Error.captureStackTrace(this, this.constructor);
+  }
 }
 
 class ForbiddenError extends Error {
@@ -18,5 +27,6 @@ class ForbiddenError extends Error {
 
 module.exports = {
   ForbiddenError,
-  NotFoundError
+  NotFoundError,
+  UnauthorizedError
 };
