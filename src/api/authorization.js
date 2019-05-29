@@ -1,55 +1,55 @@
 // const Application = require("../routes/applications/applications.model");
-const User = require("../routes/users/users.model");
+const User = require('../routes/users/users.model');
 // const Cohort = require("../routes/cohort/cohort.model");
-const { UnauthorizedError } = require("../utils/errors");
+const { UnauthorizedError } = require('../utils/errors');
 
 const ROLES = {
-  USER: "user",
-  ADMIN: "admin"
+  USER: 'user',
+  ADMIN: 'admin',
 };
 
 const RESOURCES = {
-  USERS: "users",
-  APPLICATIONS: "applications",
-  COHORTS: "cohorts"
+  USERS: 'users',
+  APPLICATIONS: 'applications',
+  COHORTS: 'cohorts',
 };
 
 const permissions = {
   [ROLES.USER]: {
     [RESOURCES.USERS]: {
-      create: "own",
-      update: "own",
-      delete: "own",
-      read: "own"
+      create: 'own',
+      update: 'own',
+      delete: 'own',
+      read: 'own',
     },
     [RESOURCES.APPLICATIONS]: {
-      create: "own",
-      update: "own",
-      delete: "own",
-      read: "own"
+      create: 'own',
+      update: 'own',
+      delete: 'own',
+      read: 'own',
     },
-    [RESOURCES.COHORTS]: {}
+    [RESOURCES.COHORTS]: {},
   },
   [ROLES.ADMIN]: {
     [RESOURCES.USERS]: {
-      create: "all",
-      update: "own",
-      delete: "own",
-      read: "all"
+      create: 'all',
+      update: 'own',
+      delete: 'own',
+      read: 'all',
     },
     [RESOURCES.APPLICATIONS]: {
-      create: "all",
-      update: "all",
-      delete: "all",
-      read: "all"
+      create: 'all',
+      update: 'all',
+      delete: 'all',
+      read: 'all',
     },
     [RESOURCES.COHORTS]: {
-      create: "all",
-      update: "all",
-      delete: "all",
-      read: "all"
-    }
-  }
+      create: 'all',
+      update: 'all',
+      delete: 'all',
+      read: 'all',
+    },
+  },
 };
 
 // const checkIfOwnResource = async (userId, resourceName, resourceId) => {
@@ -91,16 +91,16 @@ const authorizeRequest = async (req, res, next) => {
   const { user } = req;
 
   if (!user) {
-    return next(new UnauthorizedError("Unauthorized"));
+    return next(new UnauthorizedError('Unauthorized'));
   }
 
   const userId = await User.query()
     .where({ sub: user.sub })
-    .select("id")
+    .select('id')
     .first();
 
   if (!userId) {
-    return next(new UnauthorizedError("No user id match"));
+    return next(new UnauthorizedError('No user id match'));
   }
 
   req.user.id = userId;
@@ -108,5 +108,5 @@ const authorizeRequest = async (req, res, next) => {
 };
 
 module.exports = {
-  authorizeRequest
+  authorizeRequest,
 };

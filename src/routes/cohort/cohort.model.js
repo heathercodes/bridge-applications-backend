@@ -1,14 +1,18 @@
-const { Model } = require("objection");
+const { Model } = require('objection');
 
 class Cohorts extends Model {
   static get tableName() {
-    return "cohorts";
+    return 'cohorts';
   }
 
-  static insertCohort({ name, start_date, end_date, welcome_text, thank_you_text }) {
+  static insertCohort({
+    name, start_date, end_date, welcome_text, thank_you_text,
+  }) {
     return Cohorts.query()
-      .insert({ name, start_date, end_date, welcome_text, thank_you_text })
-      .returning('*')
+      .insert({
+        name, start_date, end_date, welcome_text, thank_you_text,
+      })
+      .returning('*');
   }
 
   static getCohort(id) {
@@ -20,17 +24,17 @@ class Cohorts extends Model {
   static updateCohort(id, updatedInfo) {
     return Cohorts.query()
       .patchAndFetchById(id, updatedInfo)
-      .returning('*')
+      .returning('*');
   }
 
   static deleteCohort(id) {
     return Cohorts.query()
       .findById(id)
-      .del()
+      .del();
   }
 
   static get relationMappings() {
-    const ApplicationsInfo = require("../applications/applications.model");
+    const ApplicationsInfo = require('../applications/applications.model');
 
     return {
       applications: {
@@ -38,10 +42,10 @@ class Cohorts extends Model {
         modelClass: ApplicationsInfo,
         join: {
           from: 'cohorts.id',
-          to: 'application.cohort_id'
-        }
-      }
-    }
+          to: 'application.cohort_id',
+        },
+      },
+    };
   }
 }
 

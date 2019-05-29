@@ -1,17 +1,17 @@
 const { ForbiddenError, NotFoundError } = require('../utils/errors');
 
 function decodeToken(token) {
-    if (!token) {
-        next(new NotFoundError("missing token"))
-    }
-  
-    const decoded = Buffer.from(token, 'base64').toString('ascii');
+  if (!token) {
+    next(new NotFoundError('missing token'));
+  }
 
-    if (!decoded.length) {
-        next(new ForbiddenError("invalid token"))
-    }
+  const decoded = Buffer.from(token, 'base64').toString('ascii');
 
-    return decoded;
+  if (!decoded.length) {
+    next(new ForbiddenError('invalid token'));
+  }
+
+  return decoded;
 }
 
 module.exports = decodeToken;

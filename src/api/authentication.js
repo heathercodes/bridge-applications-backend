@@ -4,21 +4,21 @@ const jwksRsa = require('jwks-rsa');
 
 // jwt is express middleware for verifying JWT token
 const authenticateRequest = jwt({
-    // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint.
-    // get the public key to check this token against
-    secret: jwksRsa.expressJwtSecret({
-      cache: true,
-      rateLimit: true,
-      jwksRequestsPerMinute: 5,
-      jwksUri: `https://dev-k0a577la.auth0.com/.well-known/jwks.json`
-    }),
+  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint.
+  // get the public key to check this token against
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: 'https://dev-k0a577la.auth0.com/.well-known/jwks.json',
+  }),
 
-    // Validate the audience and the issuer.
-    audience: 'https://applications-api',
-    issuer: "https://dev-k0a577la.auth0.com/",
-    algorithms: ["RS256"]
+  // Validate the audience and the issuer.
+  audience: 'https://applications-api',
+  issuer: 'https://dev-k0a577la.auth0.com/',
+  algorithms: ['RS256'],
 
-    // get the sub from the JWT to use for authorization
+  // get the sub from the JWT to use for authorization
 });
 
 // const mockAuthenticate = (req, res, next) => {
@@ -44,4 +44,4 @@ const authenticateRequest = jwt({
 module.exports = {
   authenticateRequest,
   // mockAuthenticate
-}
+};

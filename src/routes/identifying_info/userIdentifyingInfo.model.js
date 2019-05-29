@@ -1,8 +1,8 @@
-const { Model } = require("objection");
+const { Model } = require('objection');
 
 class UserIdentifyingInfo extends Model {
   static get tableName() {
-    return "users_identifying_info";
+    return 'users_identifying_info';
   }
 }
 

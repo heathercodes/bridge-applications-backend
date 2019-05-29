@@ -1,36 +1,36 @@
-const { Model } = require("objection");
+const { Model } = require('objection');
 
 class Applications extends Model {
   static get tableName() {
-    return "applications";
+    return 'applications';
   }
 
   static insertApplication({
     cohort_id,
     user_id,
     accepted_test,
-    accepted_cohort
+    accepted_cohort,
   }) {
     return Applications.query()
       .insert({
         cohort_id,
         user_id,
         accepted_test,
-        accepted_cohort
+        accepted_cohort,
       })
-      .returning('*')
+      .returning('*');
   }
 
   static updateApplication(id, updatedInfo) {
     return Applications.query()
       .patchAndFetchById(id, updatedInfo)
-      .returning('*')
+      .returning('*');
   }
 
   static deleteApplication(id) {
     return Applications.query()
       .findById(id)
-      .del()
+      .del();
   }
 
   static getApplication(id) {
@@ -40,8 +40,8 @@ class Applications extends Model {
   }
 
   static get relationMappings() {
-    const CohortInfo = require("../cohort/cohort.model");
-    const UserInfo = require("../users/users.model");
+    const CohortInfo = require('../cohort/cohort.model');
+    const UserInfo = require('../users/users.model');
 
     return {
       cohorts: {
@@ -49,18 +49,18 @@ class Applications extends Model {
         modelClass: CohortInfo,
         join: {
           from: 'applications.cohort_id',
-          to: 'cohort.id'
-        }
+          to: 'cohort.id',
+        },
       },
       users: {
         relation: Model.BelongsToOneRelation,
         modelClass: UserInfo,
         join: {
           from: 'applications.user_id',
-          to: 'users.id'
-        }
-      }
-    }
+          to: 'users.id',
+        },
+      },
+    };
   }
 }
 
