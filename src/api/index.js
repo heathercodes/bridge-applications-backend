@@ -8,9 +8,9 @@ const { authenticateRequest, mockAuthenticate } = require('./authentication');
 const { authorizeRequest } = require('./authorization');
 
 const router = express.Router();
+router.use('/', healthRouter);
 router.use(authenticateRequest);
 router.use(authorizeRequest);
-router.use('/health', healthRouter);
 router.use('/users', usersRouter);
 router.use('/cohorts', cohortsRouter);
 router.use('/applications', applicationsRouter);
