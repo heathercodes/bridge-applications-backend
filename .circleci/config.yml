@@ -7,18 +7,18 @@ jobs:
       - checkout
       - run: mkdir reports && mkdir reports/eslint
       - restore_cache:
-        name: Restore Yarn Package Cache
-        keys:
-          - yarn-packages-{{ checksum: "yarn.lock" }}
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-        name: Install dependencies
-        command: yarn install --frozen-lockfile
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
       - save_cache:
-        name: Save Yarn Package Cache
-        key: yarn-packages--{{ checksum: "yarn.lock" }}
-        paths:
-          - ~/.cache/yarn
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - run:
-        name: lint
-        command: yarn eslint
-        when: always
+          name: lint
+          command: yarn eslint
+          when: always
