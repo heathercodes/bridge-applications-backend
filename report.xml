@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="1" errors="1" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/api/authentication.js">
+<testcase time="0" name="org.eslint.max-len"><failure message="Line 7 exceeds the maximum line length of 100."><![CDATA[line 7, col 1, Error - Line 7 exceeds the maximum line length of 100. (max-len)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/api/authorization.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;permissions&apos; is assigned a value but never used."><![CDATA[line 17, col 7, Error - &apos;permissions&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of async arrow function."><![CDATA[line 90, col 49, Error - Expected to return a value at the end of async arrow function. (consistent-return)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="1" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/api/index.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;mockAuthenticate&apos; is assigned a value but never used."><![CDATA[line 7, col 30, Error - &apos;mockAuthenticate&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/db.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/db.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/index.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/middleware/decode.js">
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;next&apos; is not defined."><![CDATA[line 5, col 5, Error - &apos;next&apos; is not defined. (no-undef)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;next&apos; is not defined."><![CDATA[line 11, col 5, Error - &apos;next&apos; is not defined. (no-undef)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/middleware/error-handler.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 7, col 3, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;err&apos;."><![CDATA[line 13, col 24, Error - Assignment to property of function parameter &apos;err&apos;. (no-param-reassign)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/middleware/restrict-to-admin.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/middleware/restrict-to-admin.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="5" errors="5" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/applications/applications.controller.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 5, col 31, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 15, col 30, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 35, col 33, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 53, col 33, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 68, col 30, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="6" errors="6" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/applications/applications.model.js">
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;cohort_id&apos; is not in camel case."><![CDATA[line 9, col 5, Error - Identifier &apos;cohort_id&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;user_id&apos; is not in camel case."><![CDATA[line 10, col 5, Error - Identifier &apos;user_id&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;accepted_test&apos; is not in camel case."><![CDATA[line 11, col 5, Error - Identifier &apos;accepted_test&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;accepted_cohort&apos; is not in camel case."><![CDATA[line 12, col 5, Error - Identifier &apos;accepted_cohort&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 43, col 24, Error - Unexpected require(). (global-require)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 44, col 22, Error - Unexpected require(). (global-require)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="14" errors="14" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/applications/applications.router.js">
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of arrow function."><![CDATA[line 14, col 106, Error - Expected to return a value at the end of arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-promise-reject-errors"><failure message="Expected the Promise rejection reason to be an Error."><![CDATA[line 16, col 14, Error - Expected the Promise rejection reason to be an Error. (prefer-promise-reject-errors)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of arrow function."><![CDATA[line 20, col 102, Error - Expected to return a value at the end of arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-promise-reject-errors"><failure message="Expected the Promise rejection reason to be an Error."><![CDATA[line 22, col 14, Error - Expected the Promise rejection reason to be an Error. (prefer-promise-reject-errors)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;user_id&apos; is not in camel case."><![CDATA[line 26, col 12, Error - Identifier &apos;user_id&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;cohort_id&apos; is not in camel case."><![CDATA[line 26, col 21, Error - Identifier &apos;cohort_id&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of arrow function."><![CDATA[line 28, col 94, Error - Expected to return a value at the end of arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-promise-reject-errors"><failure message="Expected the Promise rejection reason to be an Error."><![CDATA[line 30, col 16, Error - Expected the Promise rejection reason to be an Error. (prefer-promise-reject-errors)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of arrow function."><![CDATA[line 36, col 20, Error - Expected to return a value at the end of arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;start_date&apos; is not in camel case."><![CDATA[line 37, col 13, Error - Identifier &apos;start_date&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;end_date&apos; is not in camel case."><![CDATA[line 37, col 25, Error - Identifier &apos;end_date&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;start_date&apos; is not in camel case."><![CDATA[line 39, col 16, Error - Identifier &apos;start_date&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;end_date&apos; is not in camel case."><![CDATA[line 39, col 37, Error - Identifier &apos;end_date&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-promise-reject-errors"><failure message="Expected the Promise rejection reason to be an Error."><![CDATA[line 40, col 14, Error - Expected the Promise rejection reason to be an Error. (prefer-promise-reject-errors)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="5" errors="5" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/cohort/cohort.controller.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 5, col 31, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 15, col 30, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 35, col 33, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 53, col 33, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 68, col 30, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="5" errors="5" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/cohort/cohort.model.js">
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;start_date&apos; is not in camel case."><![CDATA[line 9, col 11, Error - Identifier &apos;start_date&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;end_date&apos; is not in camel case."><![CDATA[line 9, col 23, Error - Identifier &apos;end_date&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;welcome_text&apos; is not in camel case."><![CDATA[line 9, col 33, Error - Identifier &apos;welcome_text&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;thank_you_text&apos; is not in camel case."><![CDATA[line 9, col 47, Error - Identifier &apos;thank_you_text&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 37, col 30, Error - Unexpected require(). (global-require)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="1" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/cohort/cohort.router.js">
+<testcase time="0" name="org.eslint.no-console"><failure message="Unexpected console statement."><![CDATA[line 10, col 3, Warning - Unexpected console statement. (no-console)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/health/health.controller.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/health/health.controller.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/health/health.router.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/health/health.router.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/identifying_info/identifyingInfo.model.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/identifying_info/identifyingInfo.model.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/identifying_info/userIdentifyingInfo.model.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/identifying_info/userIdentifyingInfo.model.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="13" errors="13" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/users/users.controller.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 7, col 31, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 17, col 30, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 38, col 33, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;identifying_info&apos; is not in camel case."><![CDATA[line 45, col 11, Error - Identifier &apos;identifying_info&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;identifying_info&apos; is not in camel case."><![CDATA[line 52, col 10, Error - Identifier &apos;identifying_info&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-shadow"><failure message="&apos;info&apos; is already declared in the upper scope."><![CDATA[line 66, col 17, Error - &apos;info&apos; is already declared in the upper scope. (no-shadow)]]></failure></testcase>
+<testcase time="0" name="org.eslint.max-len"><failure message="Line 67 exceeds the maximum line length of 100."><![CDATA[line 67, col 1, Error - Line 67 exceeds the maximum line length of 100. (max-len)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;res&apos; is defined but never used."><![CDATA[line 81, col 25, Error - &apos;res&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;next&apos; is defined but never used."><![CDATA[line 81, col 30, Error - &apos;next&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;update&apos; is assigned a value but never used."><![CDATA[line 93, col 7, Error - &apos;update&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;req&apos; is not defined."><![CDATA[line 94, col 18, Error - &apos;req&apos; is not defined. (no-undef)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;req&apos; is not defined."><![CDATA[line 95, col 23, Error - &apos;req&apos; is not defined. (no-undef)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;res&apos; is not defined."><![CDATA[line 104, col 12, Error - &apos;res&apos; is not defined. (no-undef)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="5" errors="5" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/users/users.model.js">
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;first_name&apos; is not in camel case."><![CDATA[line 19, col 5, Error - Identifier &apos;first_name&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;last_name&apos; is not in camel case."><![CDATA[line 19, col 17, Error - Identifier &apos;last_name&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.camelcase"><failure message="Identifier &apos;employment_status&apos; is not in camel case."><![CDATA[line 19, col 35, Error - Identifier &apos;employment_status&apos; is not in camel case. (camelcase)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 29, col 29, Error - Unexpected require(). (global-require)]]></failure></testcase>
+<testcase time="0" name="org.eslint.global-require"><failure message="Unexpected require()."><![CDATA[line 30, col 30, Error - Unexpected require(). (global-require)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/routes/users/users.router.js">
+<testcase time="0" name="org.eslint.no-console"><failure message="Unexpected console statement."><![CDATA[line 11, col 5, Warning - Unexpected console statement. (no-console)]]></failure></testcase>
+<testcase time="0" name="org.eslint.consistent-return"><failure message="Expected to return a value at the end of arrow function."><![CDATA[line 23, col 89, Error - Expected to return a value at the end of arrow function. (consistent-return)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-promise-reject-errors"><failure message="Expected the Promise rejection reason to be an Error."><![CDATA[line 25, col 14, Error - Expected the Promise rejection reason to be an Error. (prefer-promise-reject-errors)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/utils/errors.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/utils/errors.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/utils/logger.js">
+<testcase time="0" name="/Users/heatherpierce/Documents/personal/bridge/bridge-applications-backend/src/utils/logger.js" />
+</testsuite>
+</testsuites>
