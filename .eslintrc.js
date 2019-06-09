@@ -13,5 +13,8 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
+    'camelcase': 'off',
+    'global-require': 'off',
+    'consistent-return': 'off'
   },
 };

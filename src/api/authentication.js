@@ -4,7 +4,8 @@ const jwksRsa = require('jwks-rsa');
 
 // jwt is express middleware for verifying JWT token
 const authenticateRequest = jwt({
-  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint.
+  // Dynamically provide a signing key based on the kid
+  // in the header and the singing keys provided by the JWKS endpoint.
   // get the public key to check this token against
   secret: jwksRsa.expressJwtSecret({
     cache: true,

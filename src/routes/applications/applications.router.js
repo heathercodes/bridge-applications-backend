@@ -13,13 +13,13 @@ router.post('', [
   check('cohort_id').exists(),
   check('cohort_id').custom(value => database('cohorts').select('id').where({ id: value }).then((result) => {
     if (result.length === 0) {
-      return Promise.reject('Cohort does not exist');
+      return Promise.reject(new Error('Cohort does not exist'));
     }
   })),
   check('user_id').exists(),
   check('user_id').custom(value => database('users').select('id').where({ id: value }).then((result) => {
     if (result.length === 0) {
-      return Promise.reject('User does not exist');
+      return Promise.reject(new Error('User does not exist'));
     }
   })),
   check(['user_id', 'cohort_id']).custom((value) => {
@@ -27,7 +27,7 @@ router.post('', [
 
     return database('applications').select('id').where({ user_id, cohort_id }).then((result) => {
       if (result.length) {
-        return Promise.reject('Looks like you\'ve already applied!');
+        return Promise.reject(new Error('Looks like you\'ve already applied!'));
       }
     });
   }),
@@ -37,7 +37,7 @@ router.post('', [
     const { start_date, end_date } = result[0];
     const date = Date.now();
     if (date > start_date || date > end_date) {
-      return Promise.reject('This cohort has already started or completed');
+      return Promise.reject(new Error('This cohort has already started or completed'));
     }
   })),
 ], applicationsController.create);

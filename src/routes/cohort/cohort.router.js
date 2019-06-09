@@ -7,7 +7,6 @@ const cohortsController = require('./cohort.controller');
 const router = express.Router();
 
 router.get('', (req, res, next) => {
-  console.log(req.user.permissions);
   if (req.user.permissions.includes('read:cohorts')) {
     next();
   } else {

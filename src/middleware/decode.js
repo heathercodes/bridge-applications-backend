@@ -1,6 +1,6 @@
 const { ForbiddenError, NotFoundError } = require('../utils/errors');
 
-function decodeToken(token) {
+function decodeToken(token, next) {
   if (!token) {
     next(new NotFoundError('missing token'));
   }

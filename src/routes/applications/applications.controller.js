@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator/check');
 const Applications = require('./applications.model');
 const { NotFoundError } = require('../../utils/errors');
 
-const list = async (req, res, next) => {
+const list = async (req, res) => {
   try {
     const applications = await Applications.query();
 
@@ -12,7 +12,7 @@ const list = async (req, res, next) => {
   }
 };
 
-const get = async (req, res, next) => {
+const get = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -32,7 +32,7 @@ const get = async (req, res, next) => {
   }
 };
 
-const create = async (req, res, next) => {
+const create = async (req, res) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -50,7 +50,7 @@ const create = async (req, res, next) => {
   }
 };
 
-const update = async (req, res, next) => {
+const update = async (req, res) => {
   const { id } = req.params;
   const updatedInfo = req.body;
 
@@ -65,7 +65,7 @@ const update = async (req, res, next) => {
   }
 };
 
-const del = async (req, res, next) => {
+const del = async (req, res) => {
   const { id } = req.params;
 
   try {

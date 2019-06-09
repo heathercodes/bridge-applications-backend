@@ -8,7 +8,6 @@ const router = express.Router();
 
 router.get('',
   (req, res, next) => {
-    console.log(req.user.permissions);
     if (req.user.permissions.includes('read:users')) {
       next();
     } else {
@@ -22,7 +21,7 @@ router.post('', [
   check('email', 'email must be a formatted email').isEmail(),
   check('email').custom(value => database('users').where({ email: value }).then((users) => {
     if (users.length) {
-      return Promise.reject('Email must be unqiue');
+      return Promise.reject(new Error('Email must be unqiue'));
     }
   })),
   check('pronouns', 'pronouns must be present').exists(),

@@ -4,7 +4,7 @@ const IdentifyingInfo = require('../identifying_info/identifyingInfo.model');
 const UserIdentifyingInfo = require('../identifying_info/userIdentifyingInfo.model');
 const { NotFoundError } = require('../../utils/errors');
 
-const list = async (req, res, next) => {
+const list = async (req, res) => {
   try {
     const users = await User.getUsers();
 
@@ -14,7 +14,7 @@ const list = async (req, res, next) => {
   }
 };
 
-const get = async (req, res, next) => {
+const get = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -35,7 +35,7 @@ const get = async (req, res, next) => {
   }
 };
 
-const create = async (req, res, next) => {
+const create = async (req, res) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -63,8 +63,12 @@ const create = async (req, res, next) => {
       }
 
       const newInfo = identifying_info
-        .filter(info => !existingInfo.find(i => i.name === info.name))
-        .map(i => ({ name: i.name, is_gender: i.is_gender, is_user_generated: i.is_user_generated || false }));
+        .filter(id_info => !existingInfo.find(i => i.name === id_info.name))
+        .map(i => ({
+          name: i.name,
+          is_gender: i.is_gender,
+          is_user_generated: i.is_user_generated || false,
+        }));
 
       info = await IdentifyingInfo.insertInfo(newInfo);
 
@@ -78,7 +82,7 @@ const create = async (req, res, next) => {
   }
 };
 
-const del = async (req, res, next) => {
+const del = async (req) => {
   const { id } = req.params;
 
   try {
@@ -90,7 +94,7 @@ const del = async (req, res, next) => {
   }
 };
 
-const update = async () => {
+const update = async (req, res) => {
   const { id } = req.params;
   const updatedData = req.body;
 
@@ -114,4 +118,5 @@ module.exports = {
   get,
   create,
   del,
+  update,
 };

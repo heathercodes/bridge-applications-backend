@@ -3,54 +3,54 @@ const User = require('../routes/users/users.model');
 // const Cohort = require("../routes/cohort/cohort.model");
 const { UnauthorizedError } = require('../utils/errors');
 
-const ROLES = {
-  USER: 'user',
-  ADMIN: 'admin',
-};
+// const ROLES = {
+//   USER: 'user',
+//   ADMIN: 'admin',
+// };
 
-const RESOURCES = {
-  USERS: 'users',
-  APPLICATIONS: 'applications',
-  COHORTS: 'cohorts',
-};
+// const RESOURCES = {
+//   USERS: 'users',
+//   APPLICATIONS: 'applications',
+//   COHORTS: 'cohorts',
+// };
 
-const permissions = {
-  [ROLES.USER]: {
-    [RESOURCES.USERS]: {
-      create: 'own',
-      update: 'own',
-      delete: 'own',
-      read: 'own',
-    },
-    [RESOURCES.APPLICATIONS]: {
-      create: 'own',
-      update: 'own',
-      delete: 'own',
-      read: 'own',
-    },
-    [RESOURCES.COHORTS]: {},
-  },
-  [ROLES.ADMIN]: {
-    [RESOURCES.USERS]: {
-      create: 'all',
-      update: 'own',
-      delete: 'own',
-      read: 'all',
-    },
-    [RESOURCES.APPLICATIONS]: {
-      create: 'all',
-      update: 'all',
-      delete: 'all',
-      read: 'all',
-    },
-    [RESOURCES.COHORTS]: {
-      create: 'all',
-      update: 'all',
-      delete: 'all',
-      read: 'all',
-    },
-  },
-};
+// const permissions = {
+//   [ROLES.USER]: {
+//     [RESOURCES.USERS]: {
+//       create: 'own',
+//       update: 'own',
+//       delete: 'own',
+//       read: 'own',
+//     },
+//     [RESOURCES.APPLICATIONS]: {
+//       create: 'own',
+//       update: 'own',
+//       delete: 'own',
+//       read: 'own',
+//     },
+//     [RESOURCES.COHORTS]: {},
+//   },
+//   [ROLES.ADMIN]: {
+//     [RESOURCES.USERS]: {
+//       create: 'all',
+//       update: 'own',
+//       delete: 'own',
+//       read: 'all',
+//     },
+//     [RESOURCES.APPLICATIONS]: {
+//       create: 'all',
+//       update: 'all',
+//       delete: 'all',
+//       read: 'all',
+//     },
+//     [RESOURCES.COHORTS]: {
+//       create: 'all',
+//       update: 'all',
+//       delete: 'all',
+//       read: 'all',
+//     },
+//   },
+// };
 
 // const checkIfOwnResource = async (userId, resourceName, resourceId) => {
 //   const resourceToDbMap = {
@@ -87,7 +87,7 @@ const permissions = {
 //   return false;
 // };
 
-const authorizeRequest = async (req, res, next) => {
+const authorizeRequest = async (req, res, next) => { // eslint-disable-line
   const { user } = req;
 
   if (!user) {

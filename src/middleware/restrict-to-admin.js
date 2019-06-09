@@ -4,7 +4,7 @@ const { ForbiddenError } = require('../utils/errors');
 
 async function restrictToAdmin(req, res, next) {
   const [, token] = req.headers.authorization.split(' ');
-  const decodedToken = decodeToken(token);
+  const decodedToken = decodeToken(token, next);
 
   try {
     const checkAdmin = await User.query()
